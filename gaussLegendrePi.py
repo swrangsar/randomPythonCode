@@ -3,28 +3,28 @@
 import math
 
 
-def getNewTup(tup):
+def nextGaussLTup(tup):
     a, b, t, p = tup
-    aNew = (a + b)/2
-    bNew = math.sqrt(a * b)
-    tNew = t - (p * ((a - aNew)**2))
-    pNew = 2 *p
-    newTup = (aNew, bNew, tNew, pNew)
-    return newTup
+    aNext = (a + b)/2
+    bNext = math.sqrt(a * b)
+    tNext = t - (p * ((a - aNext)**2))
+    pNext = 2 *p
+    nextTup = (aNext, bNext, tNext, pNext)
+    return nextTup
 
-def getNthTup(tup, n):
+def gaussLTup(tup, n):
     oldTup = tup
     
     i = 0
     while i < n:
-        tup = getNewTup(oldTup)
-        print i, "Pi: ", getPi(tup)
+        tup = nextGaussLTup(oldTup)
+        print i, "Pi: ", tup2Pi(tup)
         oldTup = tup
         i += 1
     return tup
         
 
-def getPi(tup):
+def tup2Pi(tup):
     a, b, t, p = tup   
     return (a + b)**2 / (4*t)
 
@@ -34,8 +34,8 @@ def gaussLegendrePi(n):
     t = 1.0 / 4
     p = 1
     tup = (a, b, t, p)
-    newTup = getNthTup(tup, n)
-    return getPi(newTup)
+    newTup = gaussLTup(tup, n)
+    return tup2Pi(newTup)
 
 
 
