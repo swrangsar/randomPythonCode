@@ -8,7 +8,7 @@ def term0():
     return term
 
 def term(n):
-    if (n == 0):
+    if !n:
         return term0()
     a = float(6*n)
     i = (6*n)
