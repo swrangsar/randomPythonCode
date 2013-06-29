@@ -17,7 +17,7 @@ def term(n):
         a *= i
     term = float(a)
     term *= 12
-    for k in range(1,3):
+    for k in xrange(3):
         term /= math.factorial(n)
     term *= (float(13591409) + (float(545140134) * n))
     term /= (640320 ** (3/2))
@@ -25,6 +25,8 @@ def term(n):
     while i < (3*n):
         term /= 640320
         i += 1
+    sign = -1 if (n & 1) else 1
+    term *= sign
     print "term: ", term
     return term  
 
